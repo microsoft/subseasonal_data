@@ -2,11 +2,10 @@
 
 The `subseasonal_data` package provides an API for loading and manipulating the **SubseasonalClimateUSA** dataset developed for training and benchmarking subseasonal forecasting models.  Here, _subseasonal_ refers to climate and weather forecasts made 2-6 weeks in advance.  See [DATA.md](DATA.md) for a description of dataset contents, sources, and processing.
 
-## Installation
+## Getting Started
 
-```
-pip install subseasonal-data
-```
+- Install the subseasonal data package: `pip install subseasonal-data`
+- Define the environment variable `$SUBSEASONALDATA_PATH` to point to your desired data directory; any data files needed by a model will be saved to or synced with this directory
 
  This package is compatible with Python version 3.6+. 
  
