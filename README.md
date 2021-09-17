@@ -5,7 +5,7 @@ The `subseasonal_data` package provides an API for loading and manipulating the 
 ## Getting Started
 
 - Install the subseasonal data package: `pip install subseasonal-data`
-- Define the environment variable `$SUBSEASONALDATA_PATH` to point to your desired data directory; any data files needed by a model will be saved to or synced with this directory
+- Define the environment variable `$SUBSEASONALDATA_PATH` to point to your desired data directory; any accessed data files will be read from, saved to, or synced with this directory
 
  This package is compatible with Python version 3.6+. 
  
