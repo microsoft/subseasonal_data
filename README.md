@@ -88,7 +88,7 @@ The reStructuredText files that make up the documentation are stored in the [doc
 If you make use of the `subseasonal_data` package or the **SubseasonalClimateUSA** dataset, please acknowledge the Python package, the individual data sources described in [DATA.md](./DATA.md), and the associated **SubseasonalClimateUSA** preprint:
 
 [Learned Benchmarks for Subseasonal Forecasting](https://arxiv.org/pdf/toappear.pdf)  
-Soukayna Mouatadid, Paulo Orenstein, Genevieve Flaspohler, Miruna Oprescu, Judah Cohen, Franklyn Wang, Sean Knight, Maria Geogdzhayeva, Ernest Fraenkel, and Lester Mackey.  Sep. 2021.
+Soukayna Mouatadid, Paulo Orenstein, Genevieve Flaspohler, Miruna Oprescu, Judah Cohen, Franklyn Wang, Sean Knight, Maria Geogdzhayeva, Sam Levang, Ernest Fraenkel, and Lester Mackey.  Sep. 2021.
 
 ```
 @article{
