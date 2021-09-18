@@ -22,7 +22,7 @@ The precipitation variable (precip) is reported in mm and aggregated by summing 
 
 The downloaded temperature variables tmin and tmax, global precipitation variable rain, and U.S. precipitation variable precip were each interpolated to both a fixed 1° × 1° grid (NUM_LAT=181, NUM_LON=360) and a fixed 1.5° × 1.5° (NUM_LAT=121, NUM_LON=240) using the NCAR Command Language function area_hi2lores_Wrap with arguments new_lat = latGlobeF(NUM_LAT, "lat", "latitude", "degrees_north"); new_lon = lonGlobeF(NUM_LON, "lon", "longitude", "degrees_east"); wgt = cos(lat\*pi/180.0) (so that points are weighted by the cosine of the latitude in radians); opt@critpc = 50 (to require only 50% of the values to be present to interpolate); and fiCyclic = True (indicating global data with longitude values that do not quite wrap around the globe). `rain` was then renamed to `precip`.
 
-### Climate Forecasting System, Version 2 (CFSv2) Forecasts
+### Climate Forecasting System, Version 2 (CFSv2) Forecasts at 1ºx1º Resolution
 
 The daily CFSv2 32-member ensemble mean forecasts of temperature and precipitation from the coupled atmosphere-ocean-land dynamical model with 0.5-29.5 day lead times are obtained by
 
@@ -32,11 +32,11 @@ The daily CFSv2 32-member ensemble mean forecasts of temperature and precipitati
 4.  For each grid point, lead time, and issuance date, averaging the four 6-hourly forecasts from that date
 5.  For each issuance date i, lead l, and grid point, replacing the produced forecast with the average of the (issuance date t, lead l) and the (issuance date t-1, lead l+1) forecasts.
 
-### Climate Forecasting System, Version 2 (CFSv2) Forecasts at 1.5ºx1.5º Grid
+### Climate Forecasting System, Version 2 (CFSv2) Forecasts at 1.5ºx1.5º Resolution
 
-Daily CFSv2 predictions for temperature and precipitation, at a 1.5°×1.5° grid, with lead times 0-30 days, are downloaded from IRI already averaged over the four 6-hourly daily predictions, interpolated to a 1.5x1.5 grid, aggregated over the 2-week period, and with the precipitation units as mm over the 2-week period while temperature is converted to Celsius. Finally, for each issuance date i, lead l, and grid point, the forecast is replaced with the average of the (issuance date t, lead l) and the (issuance date t-1, lead l+1) forecasts.
+Daily CFSv2 predictions for temperature and precipitation, on a 1.5°×1.5° grid, with lead times 0-30 days, are downloaded from IRI already averaged over the four 6-hourly daily predictions, interpolated onto the 1.5x1.5 grid, aggregated over the 2-week period, and with the precipitation units as mm over the 2-week period while temperature is converted to Celsius. Finally, for each issuance date i, lead l, and grid point, the forecast is replaced with the average of the (issuance date t, lead l) and the (issuance date t-1, lead l+1) forecasts.
 
-### European Centre for Medium-Range Weather Forecasts (ECMWF)
+### European Centre for Medium-Range Weather (ECMWF) Forecasts
 
 Biweekly ECMWF predictions for temperature and precipitation, for both control and perturbed runs, at a 1.5°×1.5° grid, for lead times of 0-32 days, are obtained by downloading the data from IRI already averaged over available model runs and aggregated over 2-week periods. The temperature data is converted to Celsius, while the precipitation data is accumulated to mm over the entire 2-week period. A single dataframe is stored for each weather variable (tmp2m or precip), for each forecast set of runs (control or perturbed) and for each forecast type (reforecast or forecast).
 
@@ -58,7 +58,7 @@ If you use any of the **SubseasonalClimateUSA** data in your work, please cite t
 - **CFSv2:** SubX data <http://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/>, DOI: <https://doi.org/10.7916/D8PG249H>
   - Saha,  S.,  Moorthi,  S.,  Wu,  X.,  Wang,  J.,  Nadiga,  S.,  Tripp,  P.,  Behringer,  D.,  Hou,  Y.-T.,  Chuang, H.-y., Iredell, M., et al. (2014).   The NCEP climate forecast system version 2. Journal of climate, 27(6):2185–2208.
   - Kirtman,  B.,  Pegion,  K.,  DelSole,  T.,  Tippett,  M.,  Robertson,  A.,  Bell,  M.,  Burgman,  R.,  Lin,  H., Gottschalck, J., Collins, D., et al. (2017).  The subseasonal experiment (SubX). IRI Data Library, 10:D8PG249H.
-- **ECMWF**: S2S data http://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.ECMF/, DOI: http://dx.doi.org/10.1175/BAMS-D-16-0017.1
+- **ECMWF**: S2S data <http://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.ECMF/>, DOI: <http://dx.doi.org/10.1175/BAMS-D-16-0017.1>
   - Vitart et al., The Sub-seasonal to Seasonal (S2S) Prediction Project Database. Bull. Amer. Meteor. Soc., 98(1), 163-176
 - **Geopotential height (hgt), zonal wind (uwnd), and longitudinal wind (vwnd):** NOAA/OAR/ESRL PSL, NCEP reanalysis data <ftp://ftp.cdc.noaa.gov/Datasets/ncep.reanalysis/surface/>
   - Kalnay, E., Kanamitsu, M., Kistler, R., Collins, W., Deaven, D., Gandin, L., Iredell, M., Saha, S., White,G., Woollen, J., et al. (1996).  The NCEP/NCAR 40-year reanalysis project. Bulletin of the Americanmeteorological Society, 77(3):437–472.
@@ -278,10 +278,10 @@ The filename substring 'pca_' indicates that a file contains the top principal c
 - Spatiotemporal variables CFSv2 ensemble forecasts of contest precipitation and temperature:
     - subx-cfsv2-precip-all\_leads-8\_periods\_avg.h5
     - subx-cfsv2-tmp2m-all\_leads-8\_periods\_avg.h5
-- Spatiotemporal variables CFSv2 ensemble forecasts of contest precipitation and temperature at 1.5°×1.5°:
+- Spatiotemporal variables CFSv2 ensemble forecasts of US precipitation and temperature at 1.5°×1.5° resolution:
     - iri-cfsv2-precip-all-us1_5-ensembled.h5
     - iri-cfsv2-tmp2m-all-us1_5-ensembled.h5
-- Spatiotemporal variables ECMWF control and perturbed forecasts as well as control and perturbed reforecasts of contest precipitation and temperature at 1.5°×1.5°:
+- Spatiotemporal variables ECMWF control and perturbed forecasts and reforecasts of US precipitation and temperature at 1.5°×1.5° resolution:
     - iri-ecmwf-precip-all-us1_5-cf-forecast.h5
     - iri-ecmwf-precip-all-us1_5-cf-reforecast.h5
     - iri-ecmwf-precip-all-us1_5-pf-forecast.h5
@@ -299,7 +299,7 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - lat\_lon\_date\_data-contest\_tmp2m\_56w.feather
     - lat\_lon\_date\_data-us\_tmp2m\_34w.feather
     - lat\_lon\_date\_data-us\_tmp2m\_56w.feather    
-- Combination dataframes containing lagged temporal variables as features and temperature or precipitation outcome variable
+- Combination dataframes containing lagged temporal variables as features and temperature or precipitation outcome variable:
     - date\_data-contest\_precip\_34w.feather
     - date\_data-contest\_precip\_56w.feather
     - date\_data-us\_precip\_34w.feather
@@ -308,7 +308,7 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - date\_data-contest\_tmp2m\_56w.feather
     - date\_data-us\_tmp2m\_34w.feather
     - date\_data-us\_tmp2m\_56w.feather
-- Combination dataframes containing lagged spatial variables as features and temperature or precipitation outcome variable
+- Combination dataframes containing lagged spatial variables as features and temperature or precipitation outcome variable:
     - lat\_lon\_data-contest\_precip\_34w.feather
     - lat\_lon\_data-contest\_precip\_56w.feather
     - lat\_lon\_data-us\_precip\_34w.feather
@@ -317,7 +317,7 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - lat\_lon\_data-contest\_tmp2m\_56w.feather
     - lat\_lon\_data-us\_tmp2m\_34w.feather
     - lat\_lon\_data-us\_tmp2m\_56w.feather
-- Combination dataframes containing lagged spatiotemporal, spatial, and temporal variables as features and temperature or precipitation outcome variable
+- Combination dataframes containing lagged spatiotemporal, spatial, and temporal variables as features and temperature or precipitation outcome variable:
     - all\_data-contest\_precip\_34w.feather
     - all\_data-contest\_precip\_56w.feather
     - all\_data-us\_precip\_34w.feather
@@ -326,7 +326,7 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - all\_data-contest\_tmp2m\_56w.feather
     - all\_data-us\_tmp2m\_34w.feather
     - all\_data-us\_tmp2m\_56w.feather
-- Combination dataframes containing lagged spatiotemporal, spatial, and temporal variables as features and temperature or precipitation outcome variable with any row containing any missing value dropped
+- Combination dataframes containing lagged spatiotemporal, spatial, and temporal variables as features and temperature or precipitation outcome variable with any row containing any missing value dropped:
     - all\_data\_no\_NA-contest\_precip\_34w.feather
     - all\_data\_no\_NA-contest\_precip\_56w.feather
     - all\_data\_no\_NA-us\_precip\_34w.feather
