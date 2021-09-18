@@ -26,11 +26,19 @@ The downloaded temperature variables tmin and tmax, global precipitation variabl
 
 The daily CFSv2 32-member ensemble mean forecasts of temperature and precipitation from the coupled atmosphere-ocean-land dynamical model with 0.5-29.5 day lead times are obtained by
 
-1.  Downloading all six-hourly CFSv2 total precipitation (pr) and 2-meter mean air temperature (tas) hindcast and forecast leads from [SubX](https://doi.org/10.7916/D8PG249H) averaged over the provided model runs andrestricted to a 1◦×1◦latitude-longitude grid in the U.S. bounding box (longitudes 125W-67W and latitudes 25N-50N)
+1.  Downloading all six-hourly CFSv2 total precipitation (pr) and 2-meter mean air temperature (tas) hindcast and forecast leads from [SubX](https://doi.org/10.7916/D8PG249H) averaged over the provided model runs and restricted to a 1°×1° latitude-longitude grid in the U.S. bounding box (longitudes 125W-67W and latitudes 25N-50N)
 2.  Converting precipitation units to mm and temperature units to °C
 3.  For each grid point and issuance time, replacing the recorded forecast for each lead time l, with the average forecast (for temperature) or summed forecast (for precipitation) over the L=14 lead period beginning with lead time l
 4.  For each grid point, lead time, and issuance date, averaging the four 6-hourly forecasts from that date
 5.  For each issuance date i, lead l, and grid point, replacing the produced forecast with the average of the (issuance date t, lead l) and the (issuance date t-1, lead l+1) forecasts.
+
+### Climate Forecasting System, Version 2 (CFSv2) Forecasts at 1.5ºx1.5º Grid
+
+Daily CFSv2 predictions for temperature and precipitation, at a 1.5°×1.5° grid, with lead times 0-30 days, are downloaded from IRI already averaged over the four 6-hourly daily predictions, interpolated to a 1.5x1.5 grid, aggregated over the 2-week period, and with the precipitation units as mm over the 2-week period while temperature is converted to Celsius. Finally, for each issuance date i, lead l, and grid point, the forecast is replaced with the average of the (issuance date t, lead l) and the (issuance date t-1, lead l+1) forecasts.
+
+### European Centre for Medium-Range Weather Forecasts (ECMWF)
+
+Biweekly ECMWF predictions for temperature and precipitation, for both control and perturbed runs, at a 1.5°×1.5° grid, for lead times of 0-32 days, are obtained by downloading the data from IRI already averaged over available model runs and aggregated over 2-week periods. The temperature data is converted to Celsius, while the precipitation data is accumulated to mm over the entire 2-week period. A single dataframe is stored for each weather variable (tmp2m or precip), for each forecast set of runs (control or perturbed) and for each forecast type (reforecast or forecast).
 
 ### Madden-Julian Oscillation (MJO)
 
@@ -50,6 +58,8 @@ If you use any of the **SubseasonalClimateUSA** data in your work, please cite t
 - **CFSv2:** SubX data <http://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/>, DOI: <https://doi.org/10.7916/D8PG249H>
   - Saha,  S.,  Moorthi,  S.,  Wu,  X.,  Wang,  J.,  Nadiga,  S.,  Tripp,  P.,  Behringer,  D.,  Hou,  Y.-T.,  Chuang, H.-y., Iredell, M., et al. (2014).   The NCEP climate forecast system version 2. Journal of climate, 27(6):2185–2208.
   - Kirtman,  B.,  Pegion,  K.,  DelSole,  T.,  Tippett,  M.,  Robertson,  A.,  Bell,  M.,  Burgman,  R.,  Lin,  H., Gottschalck, J., Collins, D., et al. (2017).  The subseasonal experiment (SubX). IRI Data Library, 10:D8PG249H.
+- **ECMWF**: S2S data http://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.ECMF/, DOI: http://dx.doi.org/10.1175/BAMS-D-16-0017.1
+  - Vitart et al., The Sub-seasonal to Seasonal (S2S) Prediction Project Database. Bull. Amer. Meteor. Soc., 98(1), 163-176
 - **Geopotential height (hgt), zonal wind (uwnd), and longitudinal wind (vwnd):** NOAA/OAR/ESRL PSL, NCEP reanalysis data <ftp://ftp.cdc.noaa.gov/Datasets/ncep.reanalysis/surface/>
   - Kalnay, E., Kanamitsu, M., Kistler, R., Collins, W., Deaven, D., Gandin, L., Iredell, M., Saha, S., White,G., Woollen, J., et al. (1996).  The NCEP/NCAR 40-year reanalysis project. Bulletin of the Americanmeteorological Society, 77(3):437–472.
 - **Madden-Julian oscillation (MJO):** Australian Bureau of Meteorology, Real-time multivariate Madden Julian Oscillation index <https://iridl.ldeo.columbia.edu/SOURCES/.BoM/.MJO/.RMM/data.nc>
@@ -95,19 +105,16 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - gt-us\_precip-7d.h5
     - gt-us\_precip\_1.5x1.5-1d.h5	
     - gt-us\_precip\_1.5x1.5-14d.h5 
-
 - Spatial variable precipitation climatology:
   - official\_climatology-contest\_precip.h5
   - official\_climatology-us\_precip.h5
   - official\_climatology-us\_precip\_1.5x1.5.h5
-
 - Spatiotemporal variables temperature at 2m:
     - gt-contest\_tmp2m-14d.h5
     - gt-contest\_tmp2m-7d.h5
     - gt-us\_tmp2m-14d.h5
     - gt-us\_tmp2m-7d.h5
     - gt-us\_tmp2m\_1.5x1.5-14d.h5
-
 - Spatiotemporal variable maximum temperature at 2m:
     - gt-contest\_tmax-14d.h5
     - gt-contest\_tmax-1d.h5
@@ -117,7 +124,6 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - gt-us\_tmax-7d.h5
     - gt-us\_tmax\_1.5x1.5-1d.h5
     - gt-us\_tmax\_1.5x1.5-14d.h5
-
 - Spatiotemporal variable minimum temperature at 2m:
     - gt-contest\_tmin-14d.h5
     - gt-contest\_tmin-1d.h5
@@ -127,55 +133,44 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - gt-us\_tmin-7d.h5
     - gt-us\_tmin\_1.5x1.5-1d.h5
     - gt-us\_tmin\_1.5x1.5-14d.h5
-
 - Spatial variable temperature at 2 meters climatology:
   - official\_climatology-contest\_tmp2m.h5
   - official\_climatology-us\_tmp2m.h5
   - official\_climatology-us\_tmp2m\_1.5x1.5.h5
-
 - Temporal variables MEI (mei), MEI rank (rank), and Niño Index Phase (nip):
   - gt-mei.h5
-
 - Temporal variables MJO phase and amplitude:
   - gt-mjo-1d.h5
-
 - Spatial variable Köppen-Geiger climate classifications:
   - gt-climate\_regions.h5
-
 - Spatial variable elevation:
   - gt-elevation.h5
   - gt-contest\_elevation.h5
-
 - Spatiotemporal variable potential evaporation:
     - gt-contest\_pevpr.sfc.gauss-14d.h5
     - gt-contest\_pevpr.sfc.gauss-1d.h5
     - gt-us\_pevpr.sfc.gauss-14d.h5
     - gt-us\_pevpr.sfc.gauss-1d.h5
-
 - Spatiotemporal variable precipitable water for entire atmosphere:
     - gt-contest\_pr\_wtr.eatm-14d.h5
     - gt-contest\_pr\_wtr.eatm-1d.h5
     - gt-us\_pr\_wtr.eatm-14d.h5
     - gt-us\_pr\_wtr.eatm-1d.h5
-
 - Spatiotemporal variable pressure:
     - gt-contest\_pres.sfc.gauss-14d.h5
     - gt-contest\_pres.sfc.gauss-1d.h5
     - gt-us\_pres.sfc.gauss-14d.h5
     - gt-us\_pres.sfc.gauss-1d.h5
-
 - Spatiotemporal variable relative humidity:
     - gt-contest\_rhum.sig995-14d.h5
     - gt-contest\_rhum.sig995-1d.h5
     - gt-us\_rhum.sig995-14d.h5
     - gt-us\_rhum.sig995-1d.h5
-
 - Spatiotemporal variable sea level pressure:
     - gt-contest\_slp-14d.h5
     - gt-contest\_slp-1d.h5
     - gt-us\_slp-14d.h5
     - gt-us\_slp-1d.h5
-
 - Spatiotemporal variable geopotential height at 10, 100, 500, and 850 millibars:
     - gt-contest\_hgt\_10-14d.h5
     - gt-contest\_hgt\_10-1d.h5
@@ -201,19 +196,16 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - gt-us\_hgt\_500-1d.h5
     - gt-us\_hgt\_850-14d.h5
     - gt-us\_hgt\_850-1d.h5
-
 - Temporal variables geopotential height at 10, 100, 500, and 850 millibars for all grid points globally:
     - gt-wide\_hgt\_10-14d.h5
     - gt-wide\_hgt\_100-14d.h5
     - gt-wide\_hgt\_500-14d.h5
     - gt-wide\_hgt\_850-14d.h5
-
 - Temporal variables top principal components of gt-wide_hgt_\*-14d.h5 based on PC loadings from 1948-2010:
     - gt-pca\_hgt\_100\_2010-14d.h5
     - gt-pca\_hgt\_10\_2010-14d.h5
     - gt-pca\_hgt\_500\_2010-14d.h5
     - gt-pca\_hgt\_850\_2010-14d.h5
-
 - Spatiotemporal variable zonal wind at 250 and 925 millibars:
     - gt-contest\_uwnd\_250-14d.h5
     - gt-contest\_uwnd\_250-1d.h5
@@ -227,15 +219,12 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - gt-uwnd\_250-1d.h5
     - gt-uwnd\_925-14d.h5
     - gt-uwnd\_925-1d.h5
-
 - Temporal variables longitudinal wind at 250 and 925 millibars for all grid points globally:
     - gt-wide\_uwnd\_250-14d.h5
     - gt-wide\_uwnd\_925-14d.h5
-
 - Temporal variables top principal components of gt-wide_uwnd_\*-14d.h5 based on PC loadings from 1948-2010:
     - gt-pca\_uwnd\_250\_2010-14d.h5
     - gt-pca\_uwnd\_925\_2010-14d.h5
-
 - Spatiotemporal variable longitudinal wind at 250 and 925 millibars:
     - gt-contest\_vwnd\_250-14d.h5
     - gt-contest\_vwnd\_250-1d.h5
@@ -249,15 +238,12 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - gt-vwnd\_250-1d.h5
     - gt-vwnd\_925-14d.h5
     - gt-vwnd\_925-1d.h5
-
 - Temporal variables longitudinal wind at 250 and 925 millibars for all grid points globally:
     - gt-wide\_vwnd\_250-14d.h5
     - gt-wide\_vwnd\_925-14d.h5
-
 - Temporal variables top principal components of gt-wide_vwnd_\*-14d.h5 based on PC loadings from 1948-2010:
     - gt-pca\_vwnd\_250\_2010-14d.h5
     - gt-pca\_vwnd\_925\_2010-14d.h5
-
 - Spatiotemporal variable global sea ice concentration:
     - gt-us\_icec-14d.h5
     - gt-us\_icec-1d.h5
@@ -272,7 +258,6 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - gt-pca\_us\_icec\_2010-14d.h5
 - Temporal variables top principal components of gt-wide_contest_icec-14d.h5 based on PC loadings from 1981-2010:
     - gt-pca\_icec\_2010-14d.h5
-
 - Spatiotemporal variable global sea surface temperature:
     - gt-us\_sst-14d.h5
     - gt-us\_sst-1d.h5
@@ -287,15 +272,24 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - gt-pca\_us\_sst\_2010-14d.h5    	
 - Temporal variables top principal components of gt-wide_contest_sst-14d.h5 based on PC loadings from 1981-2010:
     - gt-pca\_sst\_2010-14d.h5    	  	
-
 - Spatiotemporal variables CFSv2 ensemble forecasts of US precipitation and temperature:
     - subx-cfsv2-precip-all\_leads-8\_periods\_avg-us.h5
     - subx-cfsv2-tmp2m-all\_leads-8\_periods\_avg-us.h5
-
 - Spatiotemporal variables CFSv2 ensemble forecasts of contest precipitation and temperature:
     - subx-cfsv2-precip-all\_leads-8\_periods\_avg.h5
     - subx-cfsv2-tmp2m-all\_leads-8\_periods\_avg.h5
-
+- Spatiotemporal variables CFSv2 ensemble forecasts of contest precipitation and temperature at 1.5°×1.5°:
+    - iri-cfsv2-precip-all-us1_5-ensembled.h5
+    - iri-cfsv2-tmp2m-all-us1_5-ensembled.h5
+- Spatiotemporal variables ECMWF control and perturbed forecasts as well as control and perturbed reforecasts of contest precipitation and temperature at 1.5°×1.5°:
+    - iri-ecmwf-precip-all-us1_5-cf-forecast.h5
+    - iri-ecmwf-precip-all-us1_5-cf-reforecast.h5
+    - iri-ecmwf-precip-all-us1_5-pf-forecast.h5
+    - iri-ecmwf-precip-all-us1_5-pf-reforecast.h5
+    - iri-ecmwf-tmp2m-all-us1_5-cf-forecast.h5
+    - iri-ecmwf-tmp2m-all-us1_5-cf-reforecast.h5
+    - iri-ecmwf-tmp2m-all-us1_5-pf-forecast.h5
+    - iri-ecmwf-tmp2m-all-us1_5-pf-reforecast.h5
 - Combination dataframes containing lagged spatiotemporal variables as features and temperature or precipitation outcome variable
     - lat\_lon\_date\_data-contest\_precip\_34w.feather
     - lat\_lon\_date\_data-contest\_precip\_56w.feather
@@ -305,7 +299,6 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - lat\_lon\_date\_data-contest\_tmp2m\_56w.feather
     - lat\_lon\_date\_data-us\_tmp2m\_34w.feather
     - lat\_lon\_date\_data-us\_tmp2m\_56w.feather    
-    
 - Combination dataframes containing lagged temporal variables as features and temperature or precipitation outcome variable
     - date\_data-contest\_precip\_34w.feather
     - date\_data-contest\_precip\_56w.feather
@@ -315,7 +308,6 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - date\_data-contest\_tmp2m\_56w.feather
     - date\_data-us\_tmp2m\_34w.feather
     - date\_data-us\_tmp2m\_56w.feather
-
 - Combination dataframes containing lagged spatial variables as features and temperature or precipitation outcome variable
     - lat\_lon\_data-contest\_precip\_34w.feather
     - lat\_lon\_data-contest\_precip\_56w.feather
@@ -325,7 +317,6 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - lat\_lon\_data-contest\_tmp2m\_56w.feather
     - lat\_lon\_data-us\_tmp2m\_34w.feather
     - lat\_lon\_data-us\_tmp2m\_56w.feather
-    
 - Combination dataframes containing lagged spatiotemporal, spatial, and temporal variables as features and temperature or precipitation outcome variable
     - all\_data-contest\_precip\_34w.feather
     - all\_data-contest\_precip\_56w.feather
@@ -335,7 +326,6 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - all\_data-contest\_tmp2m\_56w.feather
     - all\_data-us\_tmp2m\_34w.feather
     - all\_data-us\_tmp2m\_56w.feather
-    
 - Combination dataframes containing lagged spatiotemporal, spatial, and temporal variables as features and temperature or precipitation outcome variable with any row containing any missing value dropped
     - all\_data\_no\_NA-contest\_precip\_34w.feather
     - all\_data\_no\_NA-contest\_precip\_56w.feather
@@ -346,7 +336,6 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - all\_data\_no\_NA-us\_tmp2m\_34w.feather
     - all\_data\_no\_NA-us\_tmp2m\_56w.feather
     
-
 
 
 
