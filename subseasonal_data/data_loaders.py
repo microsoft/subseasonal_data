@@ -32,10 +32,10 @@ FORECASTID_TO_FILENAME = {
     "ecmwf-tmp2m-us1_5-cf-forecast": "iri-ecmwf-tmp2m-all-us1_5-cf-forecast",
     "ecmwf-tmp2m-us1_5-pf-reforecast": "iri-ecmwf-tmp2m-all-us1_5-pf-reforecast",
     "ecmwf-tmp2m-us1_5-cf-reforecast": "iri-ecmwf-tmp2m-all-us1_5-cf-reforecast",
-    "ecmwf-precip-us1_5-pf-forecast": "iri-ecmwf-tmp2m-all-us1_5-pf-forecast",
-    "ecmwf-precip-us1_5-cf-forecast": "iri-ecmwf-tmp2m-all-us1_5-cf-forecast",
-    "ecmwf-precip-us1_5-pf-reforecast": "iri-ecmwf-tmp2m-all-us1_5-pf-reforecast",
-    "ecmwf-precip-us1_5-cf-reforecast": "iri-ecmwf-tmp2m-all-us1_5-cf-reforecast",
+    "ecmwf-precip-us1_5-pf-forecast": "iri-ecmwf-precip-all-us1_5-pf-forecast",
+    "ecmwf-precip-us1_5-cf-forecast": "iri-ecmwf-precip-all-us1_5-cf-forecast",
+    "ecmwf-precip-us1_5-pf-reforecast": "iri-ecmwf-precip-all-us1_5-pf-reforecast",
+    "ecmwf-precip-us1_5-cf-reforecast": "iri-ecmwf-precip-all-us1_5-cf-reforecast",
 }
 
 
