@@ -57,7 +57,7 @@ df = data_loaders.get_ground_truth("us_precip")
 data_loaders.load_combined_data("all_data", "us_tmp2m", "34w")
 ```
 
-See the `Usage Examples.ipynb` notebook for an example on how to retrieve historical temperature data using the `subseasonal_data` package. 
+See the [Examples.ipynb](examples/Examples.ipynb) notebook for an example on how to retrieve historical temperature data using the `subseasonal_data` package. 
 
 ![Usage Example](usage_example.gif)
 
