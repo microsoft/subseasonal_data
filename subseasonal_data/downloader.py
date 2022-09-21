@@ -173,7 +173,7 @@ def list_subdir_files(data_subdir):
         Azure data directory of target file.
     """
     check_azcopy_install()
-    azcopy_cmd = f"azcopy list https://subseasonalusa.blob.core.windows.net/subseasonalusa/{data_subdir}"
+    azcopy_cmd = f"azcopy list {SUBSEASONAL_DATA_BLOB}/{data_subdir}"
     _subprocess_with_realtime_log(cmd=azcopy_cmd)
 
 

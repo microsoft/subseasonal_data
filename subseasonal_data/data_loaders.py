@@ -20,22 +20,46 @@ FORECASTID_TO_FILENAME = {
     "subx_ccsm4-tmp2m": "subx-ccsm4-tmp2m-all_leads-4_periods_avg",
     "subx_cfsv2-precip-us": "subx-cfsv2-precip-all_leads-8_periods_avg-us",
     "subx_cfsv2-tmp2m-us": "subx-cfsv2-tmp2m-all_leads-8_periods_avg-us",
-    "iri_cfsv2-precip-us1_5": "iri-cfsv2-precip-all-us1_5-ensembled",
-    "iri_cfsv2-tmp2m-us1_5": "iri-cfsv2-tmp2m-all-us1_5-ensembled",
     "subx_geos_v2p1-precip-us": "subx-geos_v2p1-precip-all_leads-4_periods_avg-us",
     "subx_geos_v2p1-tmp2m-us": "subx-geos_v2p1-tmp2m-all_leads-4_periods_avg-us",
     "subx_nesm-precip-us": "subx-nesm-precip-all_leads-4_periods_avg-us",
     "subx_nesm-tmp2m-us": "subx-nesm-tmp2m-all_leads-4_periods_avg-us",
     "subx_ccsm4-precip-us": "subx-ccsm4-precip-all_leads-4_periods_avg-us",
     "subx_ccsm4-tmp2m-us": "subx-ccsm4-tmp2m-all_leads-4_periods_avg-us",
+    "iri_ccsm4-precip-us1_5": "iri-ccsm4-precip-all-us1_5",
+    "iri_ccsm4-tmp2m-us1_5": "iri-ccsm4-tmp2m-all-us1_5",
+    "iri_cfsv2-precip-us1_5": "iri-cfsv2-precip-all-us1_5-ensembled",
+    "iri_cfsv2-tmp2m-us1_5": "iri-cfsv2-tmp2m-all-us1_5-ensembled",
+    "iri_fimr1p1-precip-us1_5": "iri-fimr1p1-precip-all-us1_5",
+    "iri_fimr1p1-tmp2m-us1_5": "iri-fimr1p1-tmp2m-all-us1_5",
+    "iri_gefs-precip-us1_5": "iri-gefs_combo-precip-all-us1_5",
+    "iri_gefs-tmp2m-us1_5": "iri-gefs_combo-tmp2m-all-us1_5",
+    "iri_geos_v2p1-precip-us1_5": "iri-geos_v2p1-precip-all-us1_5",
+    "iri_geos_v2p1-tmp2m-us1_5": "iri-geos_v2p1-tmp2m-all-us1_5",
+    "iri_gem-precip-us1_5": "iri-gem_combo-precip-all-us1_5",
+    "iri_gem-tmp2m-us1_5": "iri-gem_combo-tmp2m-all-us1_5",
+    "iri_nesm-precip-us1_5": "iri-nesm-precip-all-us1_5",
+    "iri_nesm-tmp2m-us1_5": "iri-nesm-tmp2m-all-us1_5",
     "ecmwf-tmp2m-us1_5-pf-forecast": "iri-ecmwf-tmp2m-all-us1_5-pf-forecast",
     "ecmwf-tmp2m-us1_5-cf-forecast": "iri-ecmwf-tmp2m-all-us1_5-cf-forecast",
+    "ecmwf-tmp2m-us1_5-ef-forecast": "iri-ecmwf-tmp2m-all-us1_5-ef-forecast",
     "ecmwf-tmp2m-us1_5-pf-reforecast": "iri-ecmwf-tmp2m-all-us1_5-pf-reforecast",
     "ecmwf-tmp2m-us1_5-cf-reforecast": "iri-ecmwf-tmp2m-all-us1_5-cf-reforecast",
+    "ecmwf-tmp2m-us1_5-ef-reforecast": "iri-ecmwf-tmp2m-all-us1_5-ef-reforecast",
     "ecmwf-precip-us1_5-pf-forecast": "iri-ecmwf-precip-all-us1_5-pf-forecast",
     "ecmwf-precip-us1_5-cf-forecast": "iri-ecmwf-precip-all-us1_5-cf-forecast",
+    "ecmwf-precip-us1_5-ef-forecast": "iri-ecmwf-precip-all-us1_5-ef-forecast",
     "ecmwf-precip-us1_5-pf-reforecast": "iri-ecmwf-precip-all-us1_5-pf-reforecast",
     "ecmwf-precip-us1_5-cf-reforecast": "iri-ecmwf-precip-all-us1_5-cf-reforecast",
+    "ecmwf-precip-us1_5-ef-reforecast": "iri-ecmwf-precip-all-us1_5-ef-reforecast",
+    "ecmwf-tmp2m_p1-global1_5-reforecast": "iri-ecmwf-tmp2m-all-global1_5-p1-reforecast",
+    "ecmwf-tmp2m_p3-global1_5-reforecast": "iri-ecmwf-tmp2m-all-global1_5-p3-reforecast",
+    "ecmwf-precip_p1-global1_5-reforecast": "iri-ecmwf-precip-all-global1_5-p1-reforecast",
+    "ecmwf-precip_p3-global1_5-reforecast": "iri-ecmwf-precip-all-global1_5-p3-reforecast",
+    "ecmwf-tmp2m_p1-global1_5-forecast": "iri-ecmwf-tmp2m-all-global1_5-p1-forecast",
+    "ecmwf-tmp2m_p3-global1_5-forecast": "iri-ecmwf-tmp2m-all-global1_5-p3-forecast",
+    "ecmwf-precip_p1-global1_5-forecast": "iri-ecmwf-precip-all-global1_5-p1-forecast",
+    "ecmwf-precip_p3-global1_5-forecast": "iri-ecmwf-precip-all-global1_5-p3-forecast",
 }
 
 
@@ -169,13 +193,13 @@ def get_ground_truth(gt_id, mask_df=None, shift=None, sync=True, allow_write=Fal
     """
     gt_file = get_local_file_path(
         data_subdir="dataframes", fname="gt-"+gt_id+"-14d.h5", sync=sync, allow_write=allow_write)
-    printf(f"Loading {gt_file}")
     if gt_id.endswith("mei"):
         # MEI does not have an associated number of days
         gt_file = gt_file.replace("-14d", "")
     if gt_id.endswith("mjo"):
         # MJO is not aggregated to a 14-day period
         gt_file = gt_file.replace("14d", "1d")
+    printf(f"Loading {gt_file}")
     return load_measurement(gt_file, mask_df, shift)
 
 
@@ -258,10 +282,7 @@ def get_forecast(forecast_id, mask_df=None, shift=None, sync=True, allow_write=F
     Parameters
     ----------
     forecast_id: string
-        Forecast identifier of the form "{1}-{2}-{3}"
-        where {1} is the forecast name in {subx_cfsv2},
-        {2} is the forecast variable (see get_forecast_variable),
-        and {3} is the target forecast horizon in {34w, 56w}.
+        Forecast identifier recognized by the dictionary FORECASTID_TO_FILENAME
 
     mask_df: pd.DataFrame, optional (default=None)
         Mask to use for filtering the data. Columns of dataframe should be lat, lon, and mask,
