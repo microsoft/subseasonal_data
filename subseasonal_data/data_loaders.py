@@ -40,6 +40,12 @@ FORECASTID_TO_FILENAME = {
     "iri_gem-tmp2m-us1_5": "iri-gem_combo-tmp2m-all-us1_5",
     "iri_nesm-precip-us1_5": "iri-nesm-precip-all-us1_5",
     "iri_nesm-tmp2m-us1_5": "iri-nesm-tmp2m-all-us1_5",
+    "iri_subx_mean-tmp2m_12w-us1_5": "iri-subx_mean-tmp2m_12w-all-us1_5",
+    "iri_subx_mean-tmp2m_34w-us1_5": "iri-subx_mean-tmp2m_34w-all-us1_5",
+    "iri_subx_mean-tmp2m_56w-us1_5": "iri-subx_mean-tmp2m_56w-all-us1_5",
+    "iri_subx_mean-precip_12w-us1_5": "iri-subx_mean-precip_12w-all-us1_5",
+    "iri_subx_mean-precip_34w-us1_5": "iri-subx_mean-precip_34w-all-us1_5",
+    "iri_subx_mean-precip_56w-us1_5": "iri-subx_mean-precip_56w-all-us1_5",
     "ecmwf-tmp2m-us1_5-pf-forecast": "iri-ecmwf-tmp2m-all-us1_5-pf-forecast",
     "ecmwf-tmp2m-us1_5-cf-forecast": "iri-ecmwf-tmp2m-all-us1_5-cf-forecast",
     "ecmwf-tmp2m-us1_5-ef-forecast": "iri-ecmwf-tmp2m-all-us1_5-ef-forecast",
@@ -61,7 +67,10 @@ FORECASTID_TO_FILENAME = {
     "ecmwf-precip_p1-global1_5-forecast": "iri-ecmwf-precip-all-global1_5-p1-forecast",
     "ecmwf-precip_p3-global1_5-forecast": "iri-ecmwf-precip-all-global1_5-p3-forecast",
 }
-
+FORECASTID_TO_FILENAME.update({
+    f"ecmwf-{gt}-us1_5-pf{ii}-forecast": f"iri-ecmwf-{gt}-all-us1_5-pf{ii}-forecast"
+    for gt in ["tmp2m", "precip"] for ii in range(1,51) 
+})
 
 def get_contest_mask(sync=True, allow_write=False):
     """Return forecast rodeo contest mask as a dataframe.
@@ -149,6 +158,50 @@ def get_climatology(gt_id, mask_df=None, sync=True, allow_write=False):
     # Load global climatology if US climatology requested
     file_path = get_local_file_path(
         data_subdir="dataframes", fname="official_climatology-"+gt_id+".h5", sync=sync, allow_write=allow_write)
+    return load_measurement(file_path, mask_df)
+
+def get_tercile(gt_id, tercile=1, first_year=1981, last_year=2010,
+                mask_df=None, sync=True, allow_write=False):
+    """Return climatological tercile data as a dataframe.
+
+    Parameters
+    ----------
+    gt_id: string, {'contest_tmp2m', 'contest_precip', 'us_tmp2m', 'us_precip', 'us_tmp2m_1.5x1.5', 'us_precip_1.5x1.5'}
+        Ground truth ID given by [region]_[variable], where region is {'contest', 'us'}
+        (see :func:`~subseasonal_data.data_loaders.get_contest_mask`,
+        :func:`~subseasonal_data.data_loaders.get_us_mask`) and variable is 'tmp2m' (temperature in deg&;C)
+        or `precip` (precipitation in mm).
+        
+    tercile: integer, {1, 2} (default=1)
+        Which tercile to return.
+    
+    first_year: integer (default=1981)
+        First year of climatological period.
+
+    last_year: integer (default=2010)
+        Last year of climatological period.
+        
+    mask_df: pd.DataFrame, optional (default=None)
+        Mask to use for filtering the data. Columns of dataframe should be lat, lon, and mask,
+        where mask is a {0,1} variable indicating whether the grid point should be included (1) or excluded (0).
+
+    sync: bool (default=True)
+        Whether to download/sync the source files.
+
+    allow_write: bool, default=False
+        Whether to give write permissions to all users when syncing files.
+        Recommended if working in shared directories. Users must be allowed
+        to set permissions.
+
+    Returns
+    -------
+    tercile_df: pd.DataFrame
+        Tercile dataframe.
+    """
+    file_path = get_local_file_path(
+        data_subdir="dataframes", 
+        fname=f"tercile{tercile}_{first_year}_{last_year}-{gt_id}.h5", 
+        sync=sync, allow_write=allow_write)
     return load_measurement(file_path, mask_df)
 
 

@@ -250,7 +250,7 @@ def get_measurement_variable(gt_id, shift=None):
     for name in valid_names:
         if gt_id.endswith(name):
             return name+suffix
-    valid_names_1pt5 = ["tmp2m", "tmin", "tmax", "precip",
+    valid_names_1pt5 = ["tmp2m", "tmin", "tmax", "precip", 
                         "tmp2m_p1", "tmp2m_p3", "precip_p1", "precip_p3"]
     for name in valid_names_1pt5:
         if gt_id.endswith(name+"_1.5x1.5"):

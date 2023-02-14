@@ -36,6 +36,10 @@ The daily CFSv2 32-member ensemble mean forecasts of temperature and precipitati
 
 Daily CFSv2 predictions for temperature and precipitation, on a 1.5°×1.5° grid, with lead times 0-30 days, are downloaded from IRI already averaged over the four 6-hourly daily predictions, interpolated onto the 1.5x1.5 grid, aggregated over the 2-week period, and with the precipitation units as mm over the 2-week period while temperature is converted to Celsius. Finally, for each issuance date i, lead l, and grid point, the forecast is replaced with the average of the (issuance date t, lead l) and the (issuance date t-1, lead l+1) forecasts.
 
+### SubX Forecasts at 1.5ºx1.5º Resolution
+
+Subweekly GMAO-GEOS, NRL-NESM, RSMAS-CCSM4, ESRL-FI, EMC-GEFS, and ECCC-GEM predictions for temperature and precipitation, on a 1.5°×1.5° grid, with lead times 0-30 days, are downloaded from IRI already averaged over all individual ensemble members, interpolated onto the 1.5x1.5 grid, aggregated over the 2-week period, and with the precipitation units as mm over the 2-week period while temperature is converted to Celsius. Finally, for each issuance date i, lead l, and grid point, the forecast is replaced with the average of the (issuance date t, lead l) and the (issuance date t-1, lead l+1) forecasts.
+
 ### European Centre for Medium-Range Weather (ECMWF) Forecasts
 
 Biweekly ECMWF predictions for temperature and precipitation, for both control and perturbed runs, at a 1.5°×1.5° grid, for lead times of 0-32 days, are obtained by downloading the data from IRI already averaged over available model runs and aggregated over 2-week periods. The temperature data is converted to Celsius, while the precipitation data is accumulated to mm over the entire 2-week period. A single dataframe is stored for each weather variable (tmp2m or precip), for each forecast set of runs (control or perturbed) and for each forecast type (reforecast or forecast).
@@ -55,7 +59,7 @@ If you use any of the **SubseasonalClimateUSA** data in your work, please cite t
   - Xie, P., Chen, M., and Shi, W. (2010).  CPC unified gauge-based analysis of global daily precipitation. In Preprints, 24th Conf. on Hydrology, Atlanta, GA, Amer. Meteor. Soc, volume 2.
   - Chen, M., Shi, W., Xie, P., Silva, V. B., Kousky, V. E., Wayne Higgins, R., and Janowiak, J. E. (2008). Assessing objective techniques for gauge-based analyses of global daily precipitation. Journal of Geophysical Research: Atmospheres, 113(D4).
   - Xie, P., Chen, M., Yang, S., Yatagai, A., Hayasaka, T., Fukushima, Y., and Liu, C. (2007). A gauge-based analysis of daily precipitation over east asia. Journal of Hydrometeorology, 8(3):607–626.
-- **CFSv2:** SubX data <http://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/>, DOI: <https://doi.org/10.7916/D8PG249H>
+- **CFSv2 and SubX:** SubX data <http://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/>, DOI: <https://doi.org/10.7916/D8PG249H>
   - Saha,  S.,  Moorthi,  S.,  Wu,  X.,  Wang,  J.,  Nadiga,  S.,  Tripp,  P.,  Behringer,  D.,  Hou,  Y.-T.,  Chuang, H.-y., Iredell, M., et al. (2014).   The NCEP climate forecast system version 2. Journal of climate, 27(6):2185–2208.
   - Kirtman,  B.,  Pegion,  K.,  DelSole,  T.,  Tippett,  M.,  Robertson,  A.,  Bell,  M.,  Burgman,  R.,  Lin,  H., Gottschalck, J., Collins, D., et al. (2017).  The subseasonal experiment (SubX). IRI Data Library, 10:D8PG249H.
 - **ECMWF**: S2S data <http://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.ECMF/>, DOI: <http://dx.doi.org/10.1175/BAMS-D-16-0017.1>
@@ -105,10 +109,17 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - gt-us\_precip-7d.h5
     - gt-us\_precip\_1.5x1.5-1d.h5	
     - gt-us\_precip\_1.5x1.5-14d.h5 
-- Spatial variable precipitation climatology:
-  - official\_climatology-contest\_precip.h5
-  - official\_climatology-us\_precip.h5
-  - official\_climatology-us\_precip\_1.5x1.5.h5
+- Spatiotemporal variable precipitation 1981-2010 climatology:
+    - official\_climatology-contest\_precip.h5
+    - official\_climatology-us\_precip.h5
+    - official\_climatology-us\_precip\_1.5x1.5.h5
+- Spatiotemporal variable climatological precipitation terciles:
+    - tercile1\_1981\_2010-us\_precip\_1.5x1.5.h5
+    - tercile2\_1981\_2010-us\_precip\_1.5x1.5.h5
+- Spatiotemporal variable indicator of precipitation less than or equal to first 1981-2010 climatological tercile:
+    - gt-us\_precip\_p1\_1.5x1.5-14d.h5
+- Spatiotemporal variable indicator of precipitation greater than second 1981-2010 climatological tercile:
+    - gt-us\_precip\_p3\_1.5x1.5-14d.h5
 - Spatiotemporal variables temperature at 2m:
     - gt-contest\_tmp2m-14d.h5
     - gt-contest\_tmp2m-7d.h5
@@ -133,19 +144,26 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - gt-us\_tmin-7d.h5
     - gt-us\_tmin\_1.5x1.5-1d.h5
     - gt-us\_tmin\_1.5x1.5-14d.h5
-- Spatial variable temperature at 2 meters climatology:
-  - official\_climatology-contest\_tmp2m.h5
-  - official\_climatology-us\_tmp2m.h5
-  - official\_climatology-us\_tmp2m\_1.5x1.5.h5
+- Spatiotemporal variable temperature at 2 meters 1981-2020 climatology:
+    - official\_climatology-contest\_tmp2m.h5
+    - official\_climatology-us\_tmp2m.h5
+    - official\_climatology-us\_tmp2m\_1.5x1.5.h5
+- Spatiotemporal variable climatological temperature at 2m terciles:
+    - tercile1\_1981\_2010-us\_tmp2m\_1.5x1.5.h5
+    - tercile2\_1981\_2010-us\_tmp2m\_1.5x1.5.h5
+- Spatiotemporal variable indicator of temperature at 2m less than or equal to first 1981-2010 climatological tercile:
+    - gt-us\_tmp2m\_p1\_1.5x1.5-14d.h5
+- Spatiotemporal variable indicator of temperature at 2m greater than second 1981-2010 climatological tercile:
+    - gt-us\_tmp2m\_p3\_1.5x1.5-14d.h5
 - Temporal variables MEI (mei), MEI rank (rank), and Niño Index Phase (nip):
-  - gt-mei.h5
+    - gt-mei.h5
 - Temporal variables MJO phase and amplitude:
-  - gt-mjo-1d.h5
+    - gt-mjo-1d.h5
 - Spatial variable Köppen-Geiger climate classifications:
-  - gt-climate\_regions.h5
+    - gt-climate\_regions.h5
 - Spatial variable elevation:
-  - gt-elevation.h5
-  - gt-contest\_elevation.h5
+    - gt-elevation.h5
+    - gt-contest\_elevation.h5
 - Spatiotemporal variable potential evaporation:
     - gt-contest\_pevpr.sfc.gauss-14d.h5
     - gt-contest\_pevpr.sfc.gauss-1d.h5
@@ -279,17 +297,61 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - subx-cfsv2-precip-all\_leads-8\_periods\_avg.h5
     - subx-cfsv2-tmp2m-all\_leads-8\_periods\_avg.h5
 - Spatiotemporal variables CFSv2 ensemble forecasts of US precipitation and temperature at 1.5°×1.5° resolution:
-    - iri-cfsv2-precip-all-us1_5-ensembled.h5
-    - iri-cfsv2-tmp2m-all-us1_5-ensembled.h5
-- Spatiotemporal variables ECMWF control and perturbed forecasts and reforecasts of US precipitation and temperature at 1.5°×1.5° resolution:
-    - iri-ecmwf-precip-all-us1_5-cf-forecast.h5
-    - iri-ecmwf-precip-all-us1_5-cf-reforecast.h5
-    - iri-ecmwf-precip-all-us1_5-pf-forecast.h5
-    - iri-ecmwf-precip-all-us1_5-pf-reforecast.h5
-    - iri-ecmwf-tmp2m-all-us1_5-cf-forecast.h5
-    - iri-ecmwf-tmp2m-all-us1_5-cf-reforecast.h5
-    - iri-ecmwf-tmp2m-all-us1_5-pf-forecast.h5
-    - iri-ecmwf-tmp2m-all-us1_5-pf-reforecast.h5
+    - iri-cfsv2-precip-all-us1\_5-ensembled.h5
+    - iri-cfsv2-tmp2m-all-us1\_5-ensembled.h5
+- Spatiotemporal variables SubX forecasts of US precipitation and temperature at 1.5°×1.5° resolution:
+    - iri-ccsm4-precip-all-us1\_5.h5
+    - iri-ccsm4-tmp2m-all-us1\_5.h5
+    - iri-fimr1p1-precip-all-us1\_5.h5
+    - iri-fimr1p1-tmp2m-all-us1\_5.h5
+    - iri-gefs-precip-all-us1\_5.h5
+    - iri-gefs-tmp2m-all-us1\_5.h5
+    - iri-gefsv12-precip-all-us1\_5.h5
+    - iri-gefsv12-tmp2m-all-us1\_5.h5
+    - iri-gem-precip-all-us1\_5.h5
+    - iri-gem-tmp2m-all-us1\_5.h5
+    - iri-geos_v2p1-precip-all-us1\_5.h5
+    - iri-geos_v2p1-tmp2m-all-us1\_5.h5
+    - iri-geps5-precip-all-us1\_5.h5
+    - iri-geps5-tmp2m-all-us1\_5.h5
+    - iri-geps6-precip-all-us1\_5.h5
+    - iri-geps6-tmp2m-all-us1\_5.h5
+    - iri-geps7-precip-all-us1\_5.h5
+    - iri-geps7-tmp2m-all-us1\_5.h5
+    - iri-nesm-precip-all-us1\_5.h5
+    - iri-nesm-tmp2m-all-us1\_5.h5
+    - iri-fimr1p1-precip-all-us1\_5.h5
+    - iri-fimr1p1-tmp2m-all-us1\_5.h5
+    - iri-fimr1p1-precip-all-us1\_5.h5
+    - iri-fimr1p1-tmp2m-all-us1\_5.h5
+- Spatiotemporal variables concatenation of GEFS and GEFSv12 forecasts of US precipitation and temperature at 1.5°×1.5° resolution:
+    - iri-gefs\_combo-precip-all-us1\_5.h5
+    - iri-gefs\_combo-tmp2m-all-us1\_5.h5
+- Spatiotemporal variables concatenation of ECCC GEM, GEPS5, GEPS6, and GEPS7 forecasts of US precipitation and temperature at 1.5°×1.5° resolution:
+    - iri-gem\_combo-precip-all-us1\_5.h5
+    - iri-gem\_combo-tmp2m-all-us1\_5.h5
+- Spatiotemporal variables SubX multimodel mean forecasts of US precipitation and temperature at 1.5°×1.5° resolution:
+    - iri-subx\_mean-precip\_12w-all-us1\_5.h5
+    - iri-subx\_mean-tmp2m\_12w-all-us1\_5.h5
+    - iri-subx\_mean-precip\_34w-all-us1\_5.h5
+    - iri-subx\_mean-tmp2m\_34w-all-us1\_5.h5
+    - iri-subx\_mean-precip\_56w-all-us1\_5.h5
+    - iri-subx\_mean-tmp2m\_56w-all-us1\_5.h5
+- Spatiotemporal variables ECMWF control, individual perturbed (pf1, ..., pf50), perturbed ensemble (pf), and control+perturbed ensemble (ef) forecasts and reforecasts of US precipitation and temperature at 1.5°×1.5° resolution:
+    - iri-ecmwf-precip-all-us1\_5-cf-forecast.h5
+    - iri-ecmwf-precip-all-us1\_5-cf-reforecast.h5
+    - iri-ecmwf-precip-all-us1\_5-pf-forecast.h5
+    - iri-ecmwf-precip-all-us1\_5-pf-reforecast.h5
+    - iri-ecmwf-precip-all-us1\_5-pf*-forecast.h5
+    - iri-ecmwf-precip-all-us1\_5-ef-forecast.h5
+    - iri-ecmwf-precip-all-us1\_5-ef-reforecast.h5
+    - iri-ecmwf-tmp2m-all-us1\_5-cf-forecast.h5
+    - iri-ecmwf-tmp2m-all-us1\_5-cf-reforecast.h5
+    - iri-ecmwf-tmp2m-all-us1\_5-pf-forecast.h5
+    - iri-ecmwf-tmp2m-all-us1\_5-pf*-forecast.h5
+    - iri-ecmwf-tmp2m-all-us1\_5-pf-reforecast.h5
+    - iri-ecmwf-tmp2m-all-us1\_5-ef-forecast.h5
+    - iri-ecmwf-tmp2m-all-us1\_5-ef-reforecast.h5
 - Combination dataframes containing lagged spatiotemporal variables as features and temperature or precipitation outcome variable
     - lat\_lon\_date\_data-contest\_precip\_34w.feather
     - lat\_lon\_date\_data-contest\_precip\_56w.feather
@@ -335,7 +397,3 @@ The filename substring 'pca_' indicates that a file contains the top principal c
     - all\_data\_no\_NA-contest\_tmp2m\_56w.feather
     - all\_data\_no\_NA-us\_tmp2m\_34w.feather
     - all\_data\_no\_NA-us\_tmp2m\_56w.feather
-    
-
-
-
