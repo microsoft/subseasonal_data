@@ -94,8 +94,8 @@ Soukayna Mouatadid, Paulo Orenstein, Genevieve Flaspohler, Miruna Oprescu, Judah
 
 ```
 @article{
-  mouatadid2021toolkit,
-  title={Learned Benchmarks for Subseasonal Forecasting},
+  mouatadid2021subseasonal,
+  title={SubseasonalClimateUSA: A Dataset for Subseasonal Forecasting and Benchmarking},
   author={Soukayna Mouatadid, Paulo Orenstein, Genevieve Flaspohler, Miruna Oprescu, Judah Cohen, Franklyn Wang, Sean Knight, Maria Geogdzhayeva, Sam Levang, Ernest Fraenkel, and Lester Mackey},
   journal={arXiv preprint arXiv:2109.10399},
   year={2021}
