@@ -85,9 +85,11 @@ The reStructuredText files that make up the documentation are stored in the `doc
 
 ## Data Usage and Citation
 
+The **SubseasonalClimateUSA** dataset is released under a [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/), and the `subseasonal_data` repository code is released under an [MIT license](https://github.com/microsoft/subseasonal_data/blob/main/LICENSE).
+
 If you make use of the `subseasonal_data` package or the **SubseasonalClimateUSA** dataset, please acknowledge the Python package, the individual data sources described in [DATA.md](https://github.com/microsoft/subseasonal_data/blob/main/DATA.md), and the associated **SubseasonalClimateUSA** preprint:
 
-[Learned Benchmarks for Subseasonal Forecasting](https://arxiv.org/pdf/2109.10399.pdf)  
+[**SubseasonalClimateUSA**: A Dataset for Subseasonal Forecasting and Benchmarking](https://arxiv.org/pdf/2109.10399.pdf)  
 Soukayna Mouatadid, Paulo Orenstein, Genevieve Flaspohler, Miruna Oprescu, Judah Cohen, Franklyn Wang, Sean Knight, Maria Geogdzhayeva, Sam Levang, Ernest Fraenkel, and Lester Mackey.  Sep. 2021.
 
 ```
