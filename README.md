@@ -9,7 +9,7 @@ The `subseasonal_data` package provides an API for loading and manipulating the 
 
  This package is compatible with Python version 3.6+. 
  
- The underlying data is made available through Azure and is updated periodically. To download the data through this package, you will need to have the Azure Storage CLI [`azcopy`](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy) installed on your machine.
+ The underlying data is made available through Azure and is updated through a daily data collection and processing pipeline. To download the data through this package, you will need to have the Azure Storage CLI [`azcopy`](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy) installed on your machine.
 
 ## Usage Examples
 
@@ -92,15 +92,16 @@ If you make use of the `subseasonal_data` package or the **SubseasonalClimateUSA
 [**SubseasonalClimateUSA**: A Dataset for Subseasonal Forecasting and Benchmarking](https://arxiv.org/pdf/2109.10399.pdf)  
 Soukayna Mouatadid, Paulo Orenstein, Genevieve Flaspohler, Miruna Oprescu, Judah Cohen, Franklyn Wang, Sean Knight, Maria Geogdzhayeva, Sam Levang, Ernest Fraenkel, and Lester Mackey.  Sep. 2021.
 
-```
-@article{
-  mouatadid2021subseasonal,
+```bib
+@InProceedings{mouatadid2023subseasonal,
   title={SubseasonalClimateUSA: A Dataset for Subseasonal Forecasting and Benchmarking},
   author={Soukayna Mouatadid, Paulo Orenstein, Genevieve Flaspohler, Miruna Oprescu, Judah Cohen, Franklyn Wang, Sean Knight, Maria Geogdzhayeva, Sam Levang, Ernest Fraenkel, and Lester Mackey},
-  journal={arXiv preprint arXiv:2109.10399},
-  year={2021}
+  booktitle = {Advances in Neural Information Processing Systems},
+  year =         {2023},
+  volume = {36},
+  publisher = {Curran Associates, Inc.},
+  editor = {A. Oh and T. Naumann and A. Globerson and K. Saenko and M. Hardt and S. Levine},
 }
-```
 
 ## Contributing
 
