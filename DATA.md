@@ -53,30 +53,30 @@ We extract daily MJO phase and amplitude but do not average or sum those values 
 
 If you use any of the **SubseasonalClimateUSA** data in your work, please cite the associated sources and references below.
 
-- **Temperature:** NOAA/OAR/ESRL PSL, CPC global temperature data <ftp://ftp.cdc.noaa.gov/Datasets/cpc_global_temp/>
+- **Temperature** (1979-present):  NOAA/OAR/ESRL PSL, CPC global temperature data <ftp://ftp.cdc.noaa.gov/Datasets/cpc_global_temp/>
   - Fan,  Y.  and  Van  den  Dool,  H.  (2008). A  global  monthly  land  surface  air  temperature  analysis  for 1948–present. Journal of Geophysical Research: Atmospheres, 113(D1).
-- **Precipitation:** NOAA/OAR/ESRL PSL, CPC global unified precipitation data <ftp://ftp.cdc.noaa.gov/Datasets/cpc_global_precip/.NOAA/OAR/ESRL> and CPC US unified precipitation data <ftp://ftp.cdc.noaa.gov/Datasets/cpc_us_precip/.NOAA/OAR/ESRL>
+- **Precipitation** (1948-present): NOAA/OAR/ESRL PSL, CPC global unified precipitation data <ftp://ftp.cdc.noaa.gov/Datasets/cpc_global_precip/.NOAA/OAR/ESRL> and CPC US unified precipitation data <ftp://ftp.cdc.noaa.gov/Datasets/cpc_us_precip/.NOAA/OAR/ESRL>
   - Xie, P., Chen, M., and Shi, W. (2010).  CPC unified gauge-based analysis of global daily precipitation. In Preprints, 24th Conf. on Hydrology, Atlanta, GA, Amer. Meteor. Soc, volume 2.
   - Chen, M., Shi, W., Xie, P., Silva, V. B., Kousky, V. E., Wayne Higgins, R., and Janowiak, J. E. (2008). Assessing objective techniques for gauge-based analyses of global daily precipitation. Journal of Geophysical Research: Atmospheres, 113(D4).
   - Xie, P., Chen, M., Yang, S., Yatagai, A., Hayasaka, T., Fukushima, Y., and Liu, C. (2007). A gauge-based analysis of daily precipitation over east asia. Journal of Hydrometeorology, 8(3):607–626.
-- **CFSv2 and SubX:** SubX data <http://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/>, DOI: <https://doi.org/10.7916/D8PG249H>
+- **CFSv2 and SubX** (1999-present): SubX data <http://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/>, DOI: <https://doi.org/10.7916/D8PG249H>
   - Saha,  S.,  Moorthi,  S.,  Wu,  X.,  Wang,  J.,  Nadiga,  S.,  Tripp,  P.,  Behringer,  D.,  Hou,  Y.-T.,  Chuang, H.-y., Iredell, M., et al. (2014).   The NCEP climate forecast system version 2. Journal of climate, 27(6):2185–2208.
   - Kirtman,  B.,  Pegion,  K.,  DelSole,  T.,  Tippett,  M.,  Robertson,  A.,  Bell,  M.,  Burgman,  R.,  Lin,  H., Gottschalck, J., Collins, D., et al. (2017).  The subseasonal experiment (SubX). IRI Data Library, 10:D8PG249H.
-- **ECMWF**: S2S data <http://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.ECMF/>, DOI: <http://dx.doi.org/10.1175/BAMS-D-16-0017.1>
+- **ECMWF** (1995-present): S2S data <http://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.ECMF/>, DOI: <http://dx.doi.org/10.1175/BAMS-D-16-0017.1>
   - Vitart et al., The Sub-seasonal to Seasonal (S2S) Prediction Project Database. Bull. Amer. Meteor. Soc., 98(1), 163-176
-- **Geopotential height (hgt), zonal wind (uwnd), and longitudinal wind (vwnd):** NOAA/OAR/ESRL PSL, NCEP reanalysis data <ftp://ftp.cdc.noaa.gov/Datasets/ncep.reanalysis/surface/>
+- **Geopotential height (hgt), zonal wind (uwnd), and longitudinal wind (vwnd)** (1948-present): NOAA/OAR/ESRL PSL, NCEP reanalysis data <ftp://ftp.cdc.noaa.gov/Datasets/ncep.reanalysis/surface/>
   - Kalnay, E., Kanamitsu, M., Kistler, R., Collins, W., Deaven, D., Gandin, L., Iredell, M., Saha, S., White,G., Woollen, J., et al. (1996).  The NCEP/NCAR 40-year reanalysis project. Bulletin of the Americanmeteorological Society, 77(3):437–472.
-- **Madden-Julian oscillation (MJO):** Australian Bureau of Meteorology, Real-time multivariate Madden Julian Oscillation index <https://iridl.ldeo.columbia.edu/SOURCES/.BoM/.MJO/.RMM/data.nc>
+- **Madden-Julian oscillation (MJO)** (1974-present): Australian Bureau of Meteorology, Real-time multivariate Madden Julian Oscillation index <https://iridl.ldeo.columbia.edu/SOURCES/.BoM/.MJO/.RMM/data.nc>
   - Wheeler,  M.  C.  and  Hendon,  H.  H.  (2004). An  all-season  real-time  multivariate  mjo  index:Development of an index for monitoring and prediction. Monthly weather review, 132(8):1917–1932.
-- **Multivariate ENSO index (MEI.v2):** NOAA/OAR/ESRL PSL, Multivariate El Niño/Southern Oscillation (ENSO) index  https://psl.noaa.gov/enso/mei/data/meiv2.data.NOAA/OAR/ESRL 
+- **Multivariate ENSO index (MEI.v2)** (1979-present): NOAA/OAR/ESRL PSL, Multivariate El Niño/Southern Oscillation (ENSO) index  https://psl.noaa.gov/enso/mei/data/meiv2.data.NOAA/OAR/ESRL 
   - Wolter, K. and Timlin, M. S. (1993). Monitoring enso in coads with a seasonally adjusted principal. In Proc. of the 17th Climate Diagnostics Workshop, Norman, OK, NOAA/NMC/CAC, NSSL, Oklahoma Clim. Survey, CIMMS and the School of Meteor., Univ. of Oklahoma, 52, volume 57 
   - Wolter, K. and Timlin, M. S. (1998).  Measuring the strength of enso events: How does 1997/98 rank? Weather, 53(9):315–324.
   - Wolter, K. and Timlin, M. S. (2011). El niño/southern oscillation behaviour since 1871 as diagnosed in an extended multivariate enso index (mei. ext). International Journal of Climatology, 31(7):1074–1087
-- **Relative humidity (rhum), sea level pressure (slp), and precipitable water for entire atmosphere (pr_wtr):** NOAA/OAR/ESRL PSL, NCEP reanalysis data <ftp://ftp.cdc.noaa.gov/Datasets/ncep.reanalysis/surface/>
+- **Relative humidity (rhum), sea level pressure (slp), and precipitable water for entire atmosphere (pr_wtr)** (1948-present): NOAA/OAR/ESRL PSL, NCEP reanalysis data <ftp://ftp.cdc.noaa.gov/Datasets/ncep.reanalysis/surface/>
   - Kalnay, E., Kanamitsu, M., Kistler, R., Collins, W., Deaven, D., Gandin, L., Iredell, M., Saha, S., White,G., Woollen, J., et al. (1996).  The NCEP/NCAR 40-year reanalysis project. Bulletin of the Americanmeteorological Society, 77(3):437–472.
-- **Pressure at the surface (pres) and potential evaporation (pevpr):** NOAA/OAR/ESRL PSL, NCEP reanalysis data <ftp://ftp.cdc.noaa.gov/Datasets/ncep.reanalysis/surface_gauss/>
+- **Pressure at the surface (pres) and potential evaporation (pevpr)** (1948-present): NOAA/OAR/ESRL PSL, NCEP reanalysis data <ftp://ftp.cdc.noaa.gov/Datasets/ncep.reanalysis/surface_gauss/>
   - Kalnay, E., Kanamitsu, M., Kistler, R., Collins, W., Deaven, D., Gandin, L., Iredell, M., Saha, S., White,G., Woollen, J., et al. (1996).  The NCEP/NCAR 40-year reanalysis project. Bulletin of the Americanmeteorological Society, 77(3):437–472.
-- **Sea surface temperature and sea ice concentration:** NOAA/OAR/ESRL PSL, NOAA high resolution SST data <ftp://ftp.cdc.noaa.gov/Projects/Datasets/noaa.oisst.v2.highres/>
+- **Sea surface temperature and sea ice concentration** (1981-present): NOAA/OAR/ESRL PSL, NOAA high resolution SST data <ftp://ftp.cdc.noaa.gov/Projects/Datasets/noaa.oisst.v2.highres/>
   - Reynolds, R. W., Smith, T. M., Liu, C., Chelton, D. B., Casey, K. S., and Schlax, M. G. (2007). Daily high-resolution-blended analyses for sea surface temperature. Journal of climate, 20(22):5473–5496.
 - **Elevation:** Global Multi-resolution Terrain Elevation Data 2010 (GMTED2010) <https://d1qb6yzwaaq4he.cloudfront.net/data/gmted2010/GMTED2010\_15n240\_1000deg.nc>
   - Danielson, Jeffrey J., and Dean B. Gesch. Global multi-resolution terrain elevation data 2010 (GMTED2010). US Department of the Interior, US Geological Survey, 2011.
