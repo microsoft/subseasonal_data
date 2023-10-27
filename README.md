@@ -87,17 +87,17 @@ The reStructuredText files that make up the documentation are stored in the `doc
 
 The **SubseasonalClimateUSA** dataset is released under a [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/), and the `subseasonal_data` repository code is released under an [MIT license](https://github.com/microsoft/subseasonal_data/blob/main/LICENSE).
 
-If you make use of the `subseasonal_data` package or the **SubseasonalClimateUSA** dataset, please acknowledge the Python package, the individual data sources described in [DATA.md](https://github.com/microsoft/subseasonal_data/blob/main/DATA.md), and the associated **SubseasonalClimateUSA** preprint:
+If you make use of the `subseasonal_data` package or the **SubseasonalClimateUSA** dataset, please acknowledge the Python package, the individual data sources described in [DATA.md](https://github.com/microsoft/subseasonal_data/blob/main/DATA.md), and the associated **SubseasonalClimateUSA** publication:
 
 [**SubseasonalClimateUSA**: A Dataset for Subseasonal Forecasting and Benchmarking](https://arxiv.org/pdf/2109.10399.pdf)  
-Soukayna Mouatadid, Paulo Orenstein, Genevieve Flaspohler, Miruna Oprescu, Judah Cohen, Franklyn Wang, Sean Knight, Maria Geogdzhayeva, Sam Levang, Ernest Fraenkel, and Lester Mackey.  Sep. 2021.
+Soukayna Mouatadid, Paulo Orenstein, Genevieve Flaspohler, Miruna Oprescu, Judah Cohen, Franklyn Wang, Sean Knight, Maria Geogdzhayeva, Sam Levang, Ernest Fraenkel, and Lester Mackey. Advances in Neural Information Processing Systems (NeurIPS). Dec. 2023.
 
 ```bib
 @InProceedings{mouatadid2023subseasonal,
-  title={SubseasonalClimateUSA: A Dataset for Subseasonal Forecasting and Benchmarking},
-  author={Soukayna Mouatadid, Paulo Orenstein, Genevieve Flaspohler, Miruna Oprescu, Judah Cohen, Franklyn Wang, Sean Knight, Maria Geogdzhayeva, Sam Levang, Ernest Fraenkel, and Lester Mackey},
+  title = {SubseasonalClimateUSA: A Dataset for Subseasonal Forecasting and Benchmarking},
+  author = {Soukayna Mouatadid, Paulo Orenstein, Genevieve Flaspohler, Miruna Oprescu, Judah Cohen, Franklyn Wang, Sean Knight, Maria Geogdzhayeva, Sam Levang, Ernest Fraenkel, and Lester Mackey},
   booktitle = {Advances in Neural Information Processing Systems},
-  year =         {2023},
+  year = {2023},
   volume = {36},
   publisher = {Curran Associates, Inc.},
   editor = {A. Oh and T. Naumann and A. Globerson and K. Saenko and M. Hardt and S. Levine},
