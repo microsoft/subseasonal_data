@@ -102,6 +102,7 @@ Soukayna Mouatadid, Paulo Orenstein, Genevieve Flaspohler, Miruna Oprescu, Judah
   publisher = {Curran Associates, Inc.},
   editor = {A. Oh and T. Naumann and A. Globerson and K. Saenko and M. Hardt and S. Levine},
 }
+```
 
 ## Contributing
 
