@@ -1,7 +1,7 @@
 # Dataset Details
 
 The **SubseasonalClimateUSA** dataset houses a diverse collection of ground-truth measurements and model forecasts relevant to forecasting at subseasonal timescales.
-It can be viewed as a successor to the [SubseasonalRodeo dataset](https://doi.org/10.7910/DVN/IHBANG) of [Hwang et al. (2019)](https://dl.acm.org/doi/10.1145/3292500.3330674), and we quote both Hwang et al. (2019) and Mouatadid et al. (2021) in this dataset description.
+It can be viewed as a successor to the [SubseasonalRodeo dataset](https://doi.org/10.7910/DVN/IHBANG) of [Hwang et al. (2019)](https://dl.acm.org/doi/10.1145/3292500.3330674), and we quote both Hwang et al. (2019) and [Mouatadid et al. (2023)](https://arxiv.org/abs/2109.10399) in this dataset description.
 
 ## Organization
 
