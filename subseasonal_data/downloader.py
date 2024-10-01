@@ -7,7 +7,7 @@ from subprocess import CalledProcessError
 
 # Globals
 DEFAULT_SUBSEASONAL_DATA_DIR = "subseasonal_data"
-SUBSEASONAL_DATA_SUBDIRS = ["dataframes", "combined_dataframes", "masks"]
+SUBSEASONAL_DATA_SUBDIRS = ["dataframes", "combined_dataframes", "masks", os.path.join("ground_truth", "sst_1d")]
 SUBSEASONAL_DATA_BLOB = "https://subseasonalusa.blob.core.windows.net/subseasonalusa"
 
 
@@ -22,6 +22,7 @@ def download(verbose=True):
         * **dataframes**: individual dataframes containing ground truth, climatology, etc. data
         * **combined_dataframes**: lat-lon-day dataframes that merge individual dataframes
         * **masks**: lat-lon filters for Western U.S. and contiguous U.S.
+        * **ground_truth/sst_1d**: daily sea surface temperature data from the MET office to run Salient2 model.
 
     To get a list of all available files, see :func:`~subseasonal_data.downloader.list_subdir_files`.
 
@@ -62,7 +63,7 @@ def download_file(data_subdir, filename, verbose=True, allow_write=False):
 
     Parameters
     ----------
-    data_subdir: {'dataframes', 'combined_dataframes', 'masks'}
+    data_subdir: {'dataframes', 'combined_dataframes', 'masks', 'ground_truth/sst_1d'}
         Azure data directory of target file.
 
     filename: string
@@ -127,7 +128,7 @@ def get_local_file_path(data_subdir, fname, sync=True, allow_write=False):
 
     Parameters
     ----------
-    data_subdir: {'dataframes', 'combined_dataframes', 'masks'}
+    data_subdir: {'dataframes', 'combined_dataframes', 'masks', 'ground_truth/sst_1d'}
         Azure data directory of target file.
 
     fname: string
@@ -169,7 +170,7 @@ def list_subdir_files(data_subdir):
 
     Parameters
     ----------
-    data_subdir: {'dataframes', 'combined_dataframes', 'masks'}
+    data_subdir: {'dataframes', 'combined_dataframes', 'masks', 'ground_truth/sst_1d'}
         Azure data directory of target file.
     """
     check_azcopy_install()
