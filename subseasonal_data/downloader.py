@@ -49,7 +49,7 @@ def download(verbose=True):
             os.makedirs(data_subdir_path)
         # Run azcopy sync
         # Use Popen to access logs in real time
-        azcopy_cmd = f"azcopy sync {SUBSEASONAL_DATA_BLOB}/{data_subdir} {data_subdir_path} --recursive"
+        azcopy_cmd = f"azcopy sync {os.path.join(SUBSEASONAL_DATA_BLOB, data_subdir)} {data_subdir_path} --recursive"
         _subprocess_with_realtime_log(cmd=azcopy_cmd, verbose=verbose)
 
 
@@ -95,7 +95,7 @@ def download_file(data_subdir, filename, verbose=True, allow_write=False):
         cmd = "sync"
     # Run azcopy
     # Use Popen to access logs in real time
-    azcopy_cmd = f"azcopy {cmd} {SUBSEASONAL_DATA_BLOB}/{data_subdir}/{filename} {filepath}"
+    azcopy_cmd = f"azcopy {cmd} {os.path.join(SUBSEASONAL_DATA_BLOB, data_subdir, filename)} {filepath}"
     _subprocess_with_realtime_log(cmd=azcopy_cmd, verbose=verbose)
     if allow_write:
         try:
@@ -173,7 +173,7 @@ def list_subdir_files(data_subdir):
         Azure data directory of target file.
     """
     check_azcopy_install()
-    azcopy_cmd = f"azcopy list {SUBSEASONAL_DATA_BLOB}/{data_subdir}"
+    azcopy_cmd = f"azcopy list {os.path.join(SUBSEASONAL_DATA_BLOB, data_subdir)}"
     _subprocess_with_realtime_log(cmd=azcopy_cmd)
 
 
