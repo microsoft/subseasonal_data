@@ -63,7 +63,7 @@ def download_file(data_subdir, filename, verbose=True, allow_write=False):
 
     Parameters
     ----------
-    data_subdir: {'dataframes', 'combined_dataframes', 'masks', 'ground_truth/sst_1d'}
+    data_subdir: {'dataframes', 'combined_dataframes', 'masks', os.path.join('ground_truth', 'sst_1d')}
         Azure data directory of target file.
 
     filename: string
@@ -128,7 +128,7 @@ def get_local_file_path(data_subdir, fname, sync=True, allow_write=False):
 
     Parameters
     ----------
-    data_subdir: {'dataframes', 'combined_dataframes', 'masks', 'ground_truth/sst_1d'}
+    data_subdir: {'dataframes', 'combined_dataframes', 'masks', os.path.join('ground_truth', 'sst_1d')}
         Azure data directory of target file.
 
     fname: string
@@ -170,7 +170,7 @@ def list_subdir_files(data_subdir):
 
     Parameters
     ----------
-    data_subdir: {'dataframes', 'combined_dataframes', 'masks', 'ground_truth/sst_1d'}
+    data_subdir: {'dataframes', 'combined_dataframes', 'masks', os.path.join('ground_truth', 'sst_1d')}
         Azure data directory of target file.
     """
     check_azcopy_install()
