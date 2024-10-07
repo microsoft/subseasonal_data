@@ -174,8 +174,8 @@ def list_subdir_files(data_subdir):
         Azure data directory of target file.
     """
     check_azcopy_install()
-    azcopy_cmd = f"azcopy list {os.path.join(SUBSEASONAL_DATA_BLOB, data_subdir)}"
-    _subprocess_with_realtime_log(cmd=azcopy_cmd)
+    azcopy_cmd = f"azcopy list {SUBSEASONAL_DATA_BLOB}/{data_subdir}"
+    return subprocess.check_output(azcopy_cmd, shell=True, text=True)
 
 
 def _subprocess_with_realtime_log(cmd, verbose=True):
