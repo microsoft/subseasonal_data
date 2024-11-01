@@ -12,8 +12,6 @@ SUBSEASONAL_DATA_SUBDIRS = ["dataframes", "combined_dataframes", "masks", os.pat
 SUBSEASONAL_DATA_BLOB = "https://subseasonalusa.blob.core.windows.net/subseasonalusa"
 SUBSEASONAL_TOKEN_URL = "https://planetarycomputer.microsoft.com/api/sas/v1/token/subseasonalusa/subseasonalusa"
 
-
-
 def download(verbose=True):
     """Download or sync the entire subseasonal dataset from Azure storage.
 
@@ -58,6 +56,43 @@ def download(verbose=True):
         azcopy_cmd = f"azcopy sync \"{os.path.join(SUBSEASONAL_DATA_BLOB, data_subdir)}?{token}\" {data_subdir_path} --recursive"
         _subprocess_with_realtime_log(cmd=azcopy_cmd, verbose=verbose)
 
+def download_dir(data_subdir, verbose=True, allow_write=False):
+    """Download or sync the contents of one subseasonal data directory from Azure storage.
+    
+    Behavior and is similar to :func:`~subseasonal_data.downloader.download`.
+
+    If directory contents were downloaded before, this function will sync those contents.
+
+    Parameters
+    ----------
+    data_subdir: {'dataframes', 'combined_dataframes', 'masks', os.path.join('ground_truth', 'sst_1d')}
+        Azure data directory of target file.
+
+    verbose: bool, (default=True)
+        Whether to redirect download progress messages to stdout.
+
+    allow_write: bool, (default=False)
+        Whether to give write permissions to all users when syncing files.
+        Recommended if working in shared directories. Users must be allowed
+        to set permissions.
+
+    """
+    # Get data path
+    data_path = get_subseasonal_data_path()
+    # Check azcopy is installed
+    check_azcopy_install()
+    # Get data access token
+    token = get_access_token()
+    print(f"Downloading data from the '{data_subdir}' directory...")
+    data_subdir_path = os.path.join(
+        data_path, data_subdir)
+    # Make dirs
+    if not os.path.exists(data_subdir_path):
+        os.makedirs(data_subdir_path)
+    # Run azcopy sync
+    # Use Popen to access logs in real time
+    azcopy_cmd = f"azcopy sync \"{os.path.join(SUBSEASONAL_DATA_BLOB, data_subdir)}?{token}\" {data_subdir_path} --recursive"
+    _subprocess_with_realtime_log(cmd=azcopy_cmd, verbose=verbose)
 
 def download_file(data_subdir, filename, verbose=True, allow_write=False):
     """Download or sync one subseasonal data file from Azure storage.
