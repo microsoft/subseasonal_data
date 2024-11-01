@@ -4,11 +4,14 @@ import subprocess
 import warnings
 from os.path import expanduser
 from subprocess import CalledProcessError
+import requests
 
 # Globals
 DEFAULT_SUBSEASONAL_DATA_DIR = "subseasonal_data"
 SUBSEASONAL_DATA_SUBDIRS = ["dataframes", "combined_dataframes", "masks", os.path.join("ground_truth", "sst_1d")]
 SUBSEASONAL_DATA_BLOB = "https://subseasonalusa.blob.core.windows.net/subseasonalusa"
+SUBSEASONAL_TOKEN_URL = "https://planetarycomputer.microsoft.com/api/sas/v1/token/subseasonalusa/subseasonalusa"
+
 
 
 def download(verbose=True):
@@ -40,6 +43,8 @@ def download(verbose=True):
     data_path = get_subseasonal_data_path()
     # Check azcopy is installed
     check_azcopy_install()
+    # Get data access token
+    token = get_access_token()
     # Sync data
     for data_subdir in SUBSEASONAL_DATA_SUBDIRS:
         # Make dirs
@@ -50,7 +55,7 @@ def download(verbose=True):
             os.makedirs(data_subdir_path)
         # Run azcopy sync
         # Use Popen to access logs in real time
-        azcopy_cmd = f"azcopy sync {os.path.join(SUBSEASONAL_DATA_BLOB, data_subdir)} {data_subdir_path} --recursive"
+        azcopy_cmd = f"azcopy sync \"{os.path.join(SUBSEASONAL_DATA_BLOB, data_subdir)}?{token}\" {data_subdir_path} --recursive"
         _subprocess_with_realtime_log(cmd=azcopy_cmd, verbose=verbose)
 
 
@@ -89,14 +94,18 @@ def download_file(data_subdir, filename, verbose=True, allow_write=False):
     # Copy or sync data
     data_subdir_path = os.path.join(
         data_path, data_subdir)
+    if not os.path.exists(data_subdir_path):
+        os.makedirs(data_subdir_path)
     filepath = os.path.join(data_subdir_path, filename)
     if not os.path.exists(filepath):
         cmd = "copy"
     else:
         cmd = "sync"
+    # Get data access token
+    token = get_access_token()
     # Run azcopy
     # Use Popen to access logs in real time
-    azcopy_cmd = f"azcopy {cmd} {os.path.join(SUBSEASONAL_DATA_BLOB, data_subdir, filename)} {filepath}"
+    azcopy_cmd = f"azcopy {cmd} \"{os.path.join(SUBSEASONAL_DATA_BLOB, data_subdir, filename)}?{token}\" {filepath}"
     _subprocess_with_realtime_log(cmd=azcopy_cmd, verbose=verbose)
     if allow_write:
         try:
@@ -104,6 +113,10 @@ def download_file(data_subdir, filename, verbose=True, allow_write=False):
         except Exception as err:
             warnings.warn(f'Changing file permissions of {filepath} failed.')
 
+def get_access_token():
+    """Get token for subseasonal data access.
+    """
+    return requests.get(SUBSEASONAL_TOKEN_URL).json()["token"]
 
 def get_subseasonal_data_path():
     """Get local path for doanloaded subseasonal data files.
@@ -174,7 +187,9 @@ def list_subdir_files(data_subdir):
         Azure data directory of target file.
     """
     check_azcopy_install()
-    azcopy_cmd = f"azcopy list {os.path.join(SUBSEASONAL_DATA_BLOB, data_subdir)}"
+    # Get data access token
+    token = get_access_token()
+    azcopy_cmd = f"azcopy list \"{os.path.join(SUBSEASONAL_DATA_BLOB, data_subdir)}?{token}\""
     _subprocess_with_realtime_log(cmd=azcopy_cmd)
 
 
